@@ -1,5 +1,4 @@
-# Project 3 – Regression Model (Car Price Prediction)
-
+# Car Price Prediction website_using Regression Model
 This project is a complete regression prediction application built with **FastAPI** (backend) and a simple **HTML/CSS/JavaScript** frontend.
 
 The model predicts **used car prices** in **USDT** (numerically equivalent to USD here) and also returns the converted price in **Ethiopian Birr (ETB)**. It exposes a **`/predict/regression`** API that the frontend uses.
@@ -144,79 +143,6 @@ Validation rules (backed by Pydantic types and constraints):
 - `doors`: integer, **2 ≤ doors ≤ 5**.
 - `brand`: one of `Toyota`, `Hyundai`, `Suzuki`, `BMW`, `Mercedes`, `Volkswagen`.
 - `fuel_type`: one of `petrol`, `diesel`, `hybrid`, `ev`.
-
-If any validation fails, FastAPI returns an HTTP **422** with details about which field is invalid.
-
-**Response body** – JSON, using `PredictionResponse` schema:
-
-```json
-{
-  "predicted_price": 18523.42,
-  "currency": "USDT",
-  "etb_price": 2891629.8,
-  "etb_currency": "ETB",
-  "usdt_to_etb_rate": 155.95,
-  "feature_importance": {
-    "mileage": 0.32,
-    "age": 0.2,
-    "engine_size": 0.1,
-    "horsepower": 0.15,
-    "doors": 0.02,
-    "brand_toyota": 0.08,
-    "fuel_petrol": 0.03
-  },
-  "model_metadata": {
-    "task": "car_price_prediction",
-    "target": "price_usd",
-    "feature_names": [
-      "mileage",
-      "age",
-      "engine_size",
-      "horsepower",
-      "doors",
-      "brand_toyota",
-      "brand_hyundai",
-      "brand_suzuki",
-      "brand_bmw",
-      "brand_mercedes",
-      "brand_volkswagen",
-      "fuel_petrol",
-      "fuel_diesel",
-      "fuel_hybrid",
-      "fuel_ev"
-    ],
-    "brand_categories": [
-      "Toyota",
-      "Hyundai",
-      "Suzuki",
-      "BMW",
-      "Mercedes",
-      "Volkswagen"
-    ],
-    "fuel_categories": ["petrol", "diesel", "hybrid", "ev"],
-    "target_transform": "log",
-    "metrics": {
-      "rmse": 3647.36,
-      "mae": 2854.53,
-      "r2": 0.8942
-    },
-    "model_type": "RandomForestRegressor",
-    "n_estimators": 200,
-    "random_state": 42
-  }
-}
-```
-
-The backend uses `app/model.py` to:
-
-- Load `models/car_price_model.pkl` and `models/metadata.json` at startup.
-- Map request features into the correct numeric + one‑hot encoded order expected by the model.
-- Run `model.predict(...)`, invert the log transform if needed, and compute **feature importances**.
-- Convert the prediction from USDT to ETB using a fixed rate of **1 USDT = 155.95 ETB**.
-
-If the model files are missing, the endpoint returns HTTP **500** with an informative error message asking you to run `python train_model.py` first.
-
----
 
 ## 5. Frontend – user interface and validation
 
