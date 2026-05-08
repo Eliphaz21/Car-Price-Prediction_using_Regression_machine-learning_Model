@@ -318,7 +318,6 @@ http POST http://127.0.0.1:8000/predict/regression \
    - Displays the predicted price clearly in USDT and ETB.
    - Renders feature importance as bars.
    - Shows model metrics and details in the metadata panel.
-## copyright 2026 
 
 
 
