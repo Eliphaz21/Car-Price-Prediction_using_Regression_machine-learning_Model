@@ -10,7 +10,7 @@ from .model import get_default_model
 from .schemas import PredictionResponse, RegressionFeatures
 
 
-USDT_TO_ETB_RATE = 155.95
+USDT_TO_ETB_RATE = 160.00
 
 
 app = FastAPI(
