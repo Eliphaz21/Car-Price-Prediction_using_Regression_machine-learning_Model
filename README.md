@@ -101,7 +101,7 @@ The API will be available at:
 
 ---
 
-## 4. FastAPI backend – endpoints and validation
+## 4. FastAPI backend – endpoints and validation:
 
 ### 4.1. `GET /health`
 
@@ -144,7 +144,7 @@ Validation rules (backed by Pydantic types and constraints):
 - `brand`: one of `Toyota`, `Hyundai`, `Suzuki`, `BMW`, `Mercedes`, `Volkswagen`.
 - `fuel_type`: one of `petrol`, `diesel`, `hybrid`, `ev`.
 
-## 5. Frontend – user interface and validation
+## 5. Frontend – user interface and validation:
 
 The main frontend page is `templates/index.html`, served as **`GET /`** by FastAPI. It uses:
 
@@ -318,6 +318,8 @@ http POST http://127.0.0.1:8000/predict/regression \
    - Displays the predicted price clearly in USDT and ETB.
    - Renders feature importance as bars.
    - Shows model metrics and details in the metadata panel.
+   
+     Auther:yeabsra andnet
 
 
 
